@@ -1,41 +1,47 @@
-php artisan vendor:publish --tag=config
+## Instalación
+Por medio de composer llevar a cabo:
 
-Ejemplo básico:
+    composer required ensensis/laravel-bac
+
+Luego se debe publicar el archivo de configuración `config/bac.php` donde se especifican los datos del comercio:
+
+    php artisan vendor:publish --provider="Ensensis\LaravelBac\LaravelBacServiceProvider"
+
+### Ejemplo básico
+
+Para procesar una compra, se proveen los detalles de la tarjeta, el monto y el número de orden.
 
 ```php
-$authorization = new Authorization($creditCardNumber, $expirationDate, $amount, $orderId);
-$transaction = \Bac::checkout($authorization, [
-    ''
-]);
+$authorization = new Authorization($creditCardNumber, $expirationDate, $cvv, $amount, $orderId);
+$transaction = \Bac::checkout($authorization);
 ```
 
-El contenido de `$result` para una transacción satisfactoria sería un array como el siguiente:
+Donde:
+
+* $creditCardNumber: es el número de tarjeta
+* $expirationDate: fecha de expiración en formato `mmaa`
+* $amount: monto de la transacción
+* $orderId: número de orden interno del comercio
+
+También se puede invocar la clase `Bac` por injección de código:
 
 ```php
-[
-    'response' => '1',
-    'responsetext' => 'SUCCESS',
-    'authcode' => '123456',
-    'transactionid' => '4808409171',
-    'avsresponse' => '',
-    'cvvresponse' => 'N',
-    'orderid' => '123456789',
-    'type' => 'auth',
-    'response_code' => '100',
-]
+public function procesarPago(Bac $bac){ 
+    $authorization = new Authorization($creditCardNumber, $expirationDate, $cvv, $amount, $orderId);
+    $transaction = $bac->checkout($authorization);
+}
 ```
 
-array (size=9)
-  'response' => string '3' (length=1)
-  'responsetext' => string 'Duplicate transaction REFID:2419279107' (length=38)
-  'authcode' => string '' (length=0)
-  'transactionid' => string '' (length=0)
-  'avsresponse' => string '' (length=0)
-  'cvvresponse' => string '' (length=0)
-  'orderid' => string '123456789' (length=9)
-  'type' => string 'auth' (length=4)
-  'response_code' => string '300' (length=3)
-  
+Válidar si la transacción fue satisfactoria:
+
 ```php
-$transaction = \Bac::response($request);
+// true or false
+if ($transaction->isSuccess()){
+    $transactionid = $transaction->getTransactionid();
+    // ... 
+}
+else{
+    echo $transaction->getResponseText();
+    // Duplicate transaction REFID:2419279107
+}
 ```

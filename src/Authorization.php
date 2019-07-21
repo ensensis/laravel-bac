@@ -73,11 +73,12 @@ class Authorization
      */
     protected $time;
 
-    public function __construct($creditCardNumber, $expirationDate, $amount, $orderId)
+    public function __construct($creditCardNumber, $expirationDate, $ccv, $amount, $orderId)
     {
         $this->type = self::TYPE_AUTH;
         $this->creditCardNumber = $creditCardNumber;
         $this->expirationDate = $expirationDate;
+        $this->ccv = $ccv;
         $this->amount = $amount;
         $this->orderId = $orderId;
         $this->time = time();
