@@ -18,8 +18,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ensensis\\LaravelBac\\ServiceProvider"
-            ]
+                "Ensensis\\LaravelBac\\LaravelBacServiceProvider"
+            ],
+            "aliases": {
+                "BAC": "Ensensis\\LaravelBac\\Facades\\BAC.php"
+            }
         }
     },
     "require": {
