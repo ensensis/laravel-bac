@@ -1,0 +1,26 @@
+{
+    "name": "manfredjb/laravel-bac",
+    "description": "Paquete de laravel para la integraci\u0000n de la plataforma de e-commerce de BAC Credomatic",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Manfred Juarez",
+            "email": "manfredjb@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Manfredjb\\LaravelBac\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Manfredjb\\LaravelBac\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
