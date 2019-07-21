@@ -1,6 +1,8 @@
 {
     "name": "ensensis/laravel-bac",
     "description": "Paquete de laravel para la integraci\u0000n de la plataforma de e-commerce de BAC Credomatic",
+    "keywords": ["bac", "credomatic", "costa rica", "laravel"],
+    "license": "MIT",
     "type": "library",
     "authors": [
         {
@@ -10,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Manfredjb\\LaravelBac\\": "src/"
+            "Ensensis\\LaravelBac\\": "src/"
         }
     },
     "extra": {
@@ -21,6 +23,8 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "~6.0"
-    }
+        "guzzlehttp/guzzle": "~6.0",
+        "php": "^7.1.3"
+    },
+    "minimum-stability": "dev"
 }
