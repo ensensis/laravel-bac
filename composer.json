@@ -21,7 +21,7 @@
                 "Ensensis\\LaravelBac\\LaravelBacServiceProvider"
             ],
             "aliases": {
-                "BAC": "Ensensis\\LaravelBac\\Facades\\BAC.php"
+                "BAC": "Ensensis\\LaravelBac\\Facades\\BAC"
             }
         }
     },
