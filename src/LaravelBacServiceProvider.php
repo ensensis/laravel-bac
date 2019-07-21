@@ -1,6 +1,6 @@
 <?php
 
-namespace Manfredjb\LaravelBac;
+namespace Ensensis\LaravelBac;
 
 use Illuminate\Support\ServiceProvider;
 

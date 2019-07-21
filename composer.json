@@ -1,11 +1,11 @@
 {
-    "name": "manfredjb/laravel-bac",
+    "name": "ensensis/laravel-bac",
     "description": "Paquete de laravel para la integraci\u0000n de la plataforma de e-commerce de BAC Credomatic",
     "type": "library",
     "authors": [
         {
-            "name": "Manfred Juarez",
-            "email": "manfredjb@hotmail.com"
+            "name": "Ensensis",
+            "email": "equipo@ensensis.com"
         }
     ],
     "autoload": {
@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Manfredjb\\LaravelBac\\ServiceProvider"
+                "Ensensis\\LaravelBac\\ServiceProvider"
             ]
         }
     },
