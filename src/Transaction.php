@@ -125,6 +125,11 @@ class Transaction
      */
     public static function createFromResponse(Response $response){
         parse_str($response->getBody()->getContents(), $result);
+
+        if (config('bac.log.debug')){
+            \Log::channel(config('bac.log.channel'))->info($result);
+        }
+        
         return new static(
             $result['response'],
             $result['responsetext'],
