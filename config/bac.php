@@ -32,4 +32,13 @@ return [
      * - Definir una URL para redirigir a los usuarios después del pago
      */
     'redirect' => null,
+
+    /*
+     * Habilitar el registro de resultados de las transacciones en el log storage/logs/bac.log. Si se desea otro
+     * archivo considerar usar otro channel en config/logging.php
+     */
+    'log' => [
+        'debug' => true,
+        'channel' => 'daily'
+    ],
 ];
