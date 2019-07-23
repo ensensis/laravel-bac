@@ -6,6 +6,7 @@ namespace Ensensis\LaravelBac;
 class Authorization
 {
     const TYPE_AUTH = 'auth';
+    const TYPE_SALE = 'sale';
 
     /**
      * Debe enviar la constante “auth” para solicitar la autorización de la compra
@@ -75,7 +76,7 @@ class Authorization
 
     public function __construct($creditCardNumber, $expirationDate, $ccv, $amount, $orderId)
     {
-        $this->type = self::TYPE_AUTH;
+        $this->type = self::TYPE_SALE;
         $this->creditCardNumber = $creditCardNumber;
         $this->expirationDate = $expirationDate;
         $this->ccv = $ccv;
